@@ -14,7 +14,7 @@ app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, "public")))
 
 io.on("connection", function (socket){
-    console.log("connected", socket)
+    console.log("connected")
 })
 
 app.get('/', (req,res)=>{
