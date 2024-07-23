@@ -14,13 +14,13 @@ app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, "public")))
 
 io.on("connection", function (socket){
-    console.log("connected")
-    socket.on("send-location", (data) =>
+    socket.on("send-location", function(data)   
     {
         io.emit("recieve-location",{id: socket.id, ...data})
     })
+    console.log("connected")
 
-    socket.on("disconnect", ()=>{
+    socket.on("disconnect", function(){
         io.emit("user-disconnected", socket.id)
     })
 })

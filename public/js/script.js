@@ -15,7 +15,7 @@ if(navigator.geolocation){
     maximumAge: 0
 
 })
-} 
+}                                                   
 
 // asking for location
 
@@ -37,7 +37,7 @@ socket.on("recieve-location", (data) =>
         markers[id] = L.marker([latitude, longitude]).addTo(map);
     }
 })
-socket.on("user-disconnected", () =>{
+socket.on("user-disconnected", (id ) =>{
     if(markers[id]){
         map.removeLayer(markers[id] )
         delete markers[id]  
